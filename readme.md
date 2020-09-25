@@ -20,10 +20,4 @@ The three supports of project are HTML, CSS and Javascrpit.
 
 ## Documentation:
 
-Design of enemies is autorship of: <a href='https://www.freepik.es/vectores/parada'>Vector de Parada creado por flatart - www.freepik.es</a>
-
-Design of tank is autorship of: <a href='https://www.freepik.es/vectores/diseno'>Vector de Diseño creado por freepik - www.freepik.es</a>
-
-Design of bullets is autorship of: <a href='https://www.freepik.es/vectores/salud'>Vector de Salud creado por freepik - www.freepik.es</a>
-
 [requirements](./docs/readme.md)
