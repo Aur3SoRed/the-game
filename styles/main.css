@@ -2,10 +2,36 @@
   box-sizing: border-box;
 }
 
+header {
+  display: grid;
+  grid-row: center;
+  grid-column: auto;
+  margin-left: 500px;
+  margin-right: 500px;
+  justify-self: center;
+  font-size: 30px;
+  text-size-adjust: center;
+}
+
+.grid {
+  width: 500px;
+  height: 500px;
+  border: solid 2px red;
+  background-color: aliceblue;
+  display: grid;
+  grid-template-columns: 10 center;
+  grid-row: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
 img {
   display: block;
-  height: auto;
-  max-width: 100%;
+  height: 50px;
+  max-width: 50px;
+  justify-items: end;
 }
 
 picture {
@@ -14,5 +40,5 @@ picture {
 body {
   font-size: 100%;
   background-color: black;
-  color: aliceblue;
+  color: indigo;
 }
