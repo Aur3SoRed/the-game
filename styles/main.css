@@ -30,13 +30,15 @@ header {
 
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 0 rgba(235, 231, 231, 0.2);
   display: flex;
   flex-wrap: wrap;
   height: 100%;
   justify-content: center;
-  height: 600px;
-  width: 600px;
+  height: 500px;
+  width: 500px;
+  margin-left: 400px;
+  margin-right: 400px;
 }
 
 .grid div {
