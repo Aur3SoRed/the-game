@@ -24,6 +24,6 @@ Design of enemies is autorship of: <a href='https://www.freepik.es/vectores/para
 
 Design of tank is autorship of: <a href='https://www.freepik.es/vectores/diseno'>Vector de Diseño creado por freepik - www.freepik.es</a>
 
-Design of bullets is autorship of: flying bullet by lastspark from the Noun Project <a href=https://thenounproject.com/term/flying-bullet/688893/
+Design of bullets is autorship of: <a href='https://www.freepik.es/vectores/salud'>Vector de Salud creado por freepik - www.freepik.es</a>
 
 [requirements](./docs/readme.md)
