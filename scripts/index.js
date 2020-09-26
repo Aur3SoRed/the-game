@@ -14,3 +14,11 @@ for (let index = 0; index < cellCount; index = index + 1) {
 
   grid.appendChild(cell);
 }
+
+/////event listener direction
+
+const keypress = (event) => {
+  console.log({ event });
+};
+
+window.addEventListener('keypress', keypress);

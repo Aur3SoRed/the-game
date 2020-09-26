@@ -11,26 +11,13 @@ header {
   justify-self: center;
   font-size: 30px;
   text-size-adjust: center;
+  padding-bottom: 10px;
 }
-/*
-.grid {
-  width: 500px;
-  height: 500px;
-  border: solid 2px red;
-  background-color: aliceblue;
-  display: grid;
-  grid-template-columns: 10 center;
-  grid-row: center;
-  align-items: center;
-  justify-content: center;
-  margin-left: 450px;
-  margin-right: 450px;
-}
-*/
 
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(235, 231, 231, 0.2);
+  box-shadow: 0 0 20px 0 greenyellow;
+  background-image: url(../images/tree-planet-stars-galaxy-art-1140x1140-gENweB0RT.jpeg);
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -39,6 +26,7 @@ header {
   width: 500px;
   margin-left: 400px;
   margin-right: 400px;
+  padding-top: 10px;
 }
 
 .grid div {
@@ -60,6 +48,7 @@ picture {
 }
 body {
   font-size: 100%;
+  background-size: cover;
   background-color: black;
   color: indigo;
 }
