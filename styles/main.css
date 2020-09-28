@@ -43,6 +43,14 @@ img {
   justify-items: end;
 }
 
+h2 {
+  color: aqua;
+}
+
+button {
+  color: aqua;
+}
+
 picture {
   display: block;
 }

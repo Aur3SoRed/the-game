@@ -7,18 +7,38 @@ console.log(cellCount);
 
 const grid = document.querySelector('.grid');
 
+const cells = [];
+
 for (let index = 0; index < cellCount; index = index + 1) {
   console.log(index);
   const cell = document.createElement('div');
-  cell.innerText = index;
+  // cell.innerText = index;
 
   grid.appendChild(cell);
+  cells.push(cell);
 }
 
 /////event listener direction
 
-const keypress = (event) => {
-  console.log({ event });
+let princessPosition = 95;
+
+const WAD = (event) => {
+  const key = event.key;
+  console.log({ key });
+
+  switch (key) {
+    case 'KeyW':
+      console.log = 'Shoot';
+      break;
+    case 'KeyA':
+      console.log = 'Left';
+      break;
+    case 'KeyD':
+      console.log = 'Right';
+      break;
+  }
 };
 
-window.addEventListener('keypress', keypress);
+cells[princessPosition].classList.add('princess');
+
+window.addEventListener('keypress', WAD);
