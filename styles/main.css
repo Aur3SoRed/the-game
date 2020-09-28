@@ -36,6 +36,14 @@ header {
   width: 10%;
 }
 
+.grid div.princess {
+  background-image: url(../images/princess.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
 img {
   display: block;
   height: 50px;

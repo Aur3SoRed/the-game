@@ -23,22 +23,42 @@ for (let index = 0; index < cellCount; index = index + 1) {
 let princessPosition = 95;
 
 const WAD = (event) => {
-  const key = event.key;
-  console.log({ key });
+  const { key } = event;
+  console.log(event.key);
+
+  const x = princessPosition % width;
 
   switch (key) {
-    case 'KeyW':
-      console.log = 'Shoot';
+    //case 'w':
+    //console.log = 'Shoot';
+    //break;
+    case 'a':
+      if (x > 0) {
+        removeprincess(princessPosition);
+
+        princessPosition = princessPosition - 1;
+      }
+
+      console.log('Left');
       break;
-    case 'KeyA':
-      console.log = 'Left';
+    case 'd':
+      if (x < width - 1) {
+        removeprincess(princessPosition);
+        princessPosition = princessPosition + 1;
+      }
+      console.log('Right');
       break;
-    case 'KeyD':
-      console.log = 'Right';
+    default:
       break;
   }
+  addprincess(princessPosition);
 };
 
-cells[princessPosition].classList.add('princess');
+const addprincess = (index) => cells[index].classList.add('princess');
+const removeprincess = (index) => cells[index].classList.remove('princess');
+
+addprincess(princessPosition);
+
+console.log(princessPosition);
 
 window.addEventListener('keypress', WAD);
