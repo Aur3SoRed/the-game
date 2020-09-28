@@ -62,6 +62,8 @@ console.log(princessPosition);
 
 window.addEventListener('keypress', WAD);
 
+/////wafflecats positions
+
 let wafflecatPosition = [
   0,
   1,
@@ -103,3 +105,38 @@ wafflecatPosition.forEach((index) => {
 
 addwafflecat(wafflecatPosition);
 console.log(wafflecatPosition);
+
+////Destroy wafflecats?
+
+function removewafflecatPosition(index) {
+  return [index].classList.remove('wafflecat');
+}
+
+///// Shoots
+
+let blueshootPosition = princessPosition + 1;
+
+const Shoot = (event) => {
+  const { key } = event;
+  console.log(event.key);
+
+  const y = princessPosition++;
+
+  switch (key) {
+    case 'w':
+      if (y > princessPosition) {
+        removewafflecatPosition(blueshootPosition);
+        blueshootPosition = blueshootPosition++;
+      }
+      break;
+
+    default:
+      blueshootPosition(cells);
+      break;
+  }
+};
+
+const addblueshoot = (index) => cells[index].classList.add('blueshoot');
+const removeblueshoot = (index) => cells[index].classList.remove('blueshoot');
+
+window.addEventListener('keypress', Shoot);
