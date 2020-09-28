@@ -44,6 +44,14 @@ header {
   cursor: pointer;
 }
 
+.grid div.wafflecat {
+  background-image: url(../images/wafflecat.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
 img {
   display: block;
   height: 50px;
