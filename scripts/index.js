@@ -12,7 +12,7 @@ const cells = [];
 for (let index = 0; index < cellCount; index = index + 1) {
   console.log(index);
   const cell = document.createElement('div');
-  cell.innerText = index;
+  //cell.innerText = index;
 
   grid.appendChild(cell);
   cells.push(cell);
@@ -61,6 +61,33 @@ addprincess(princessPosition);
 console.log(princessPosition);
 
 window.addEventListener('keypress', WAD);
+
+///////////////////// Shoots
+
+let blueshootiming = 300;
+
+function blueshoot(event) {
+  let blueshootPosition = princessPosition;
+  const { key } = event;
+  console.log(key);
+
+  switch (key) {
+    case 'w':
+      setInterval(() => {
+        removeblueshoot(blueshootPosition);
+        blueshootPosition -= width;
+        addblueshoot(blueshootPosition);
+        console.log('shoot');
+        clearInterval();
+      }, 150);
+      break;
+  }
+}
+
+const addblueshoot = (index) => cells[index].classList.add('blueshoot');
+const removeblueshoot = (index) => cells[index].classList.remove('blueshoot');
+
+window.addEventListener('keypress', blueshoot);
 
 /////wafflecats positions
 
@@ -112,31 +139,4 @@ function removewafflecatPosition(index) {
   return [index].classList.remove('wafflecat');
 }
 
-///// Shoots
-
-let blueshootPosition = princessPosition + 1;
-
-const Shoot = (event) => {
-  const { key } = event;
-  console.log(event.key);
-
-  const y = princessPosition++;
-
-  switch (key) {
-    case 'w':
-      if (y > princessPosition) {
-        removewafflecatPosition(blueshootPosition);
-        blueshootPosition = blueshootPosition++;
-      }
-      break;
-
-    default:
-      blueshootPosition(cells);
-      break;
-  }
-};
-
-const addblueshoot = (index) => cells[index].classList.add('blueshoot');
-const removeblueshoot = (index) => cells[index].classList.remove('blueshoot');
-
-window.addEventListener('keypress', Shoot);
+/////
