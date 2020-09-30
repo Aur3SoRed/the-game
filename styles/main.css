@@ -3,6 +3,8 @@
 }
 
 header {
+  font-family: Tahoma;
+  font-weight: bold;
   display: grid;
   grid-row: center;
   grid-column: auto;
@@ -11,13 +13,15 @@ header {
   justify-self: center;
   font-size: 30px;
   text-size-adjust: center;
-  padding-bottom: 10px;
+  padding-top: 20px;
 }
 
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 greenyellow;
-  background-image: url(../images/tree-planet-stars-galaxy-art-1140x1140-gENweB0RT.jpeg);
+  box-shadow: 0 0 40px 0 chartreuse;
+  background-image: url(../images/NASA-med.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -81,6 +85,6 @@ picture {
 body {
   font-size: 100%;
   background-size: cover;
-  background-color: black;
-  color: indigo;
+  background-image: url(../images/tree-planet-stars-galaxy-art-1140x1140-gENweB0RT.jpeg);
+  color: greenyellow;
 }

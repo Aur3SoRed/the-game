@@ -9,6 +9,8 @@ const grid = document.querySelector('.grid');
 
 const cells = [];
 
+const resultDisplay = document.querySelector('#result');
+
 for (let index = 0; index < cellCount; index = index + 1) {
   console.log(index);
   const cell = document.createElement('div');
@@ -29,9 +31,6 @@ const WAD = (event) => {
   const x = princessPosition % width;
 
   switch (key) {
-    //case 'w':
-    //console.log = 'Shoot';
-    //break;
     case 'a':
       if (x > 0) {
         removeprincess(princessPosition);
@@ -54,12 +53,17 @@ const WAD = (event) => {
   addprincess(princessPosition);
 };
 
-const addprincess = (index) => cells[index].classList.add('princess');
-const removeprincess = (index) => cells[index].classList.remove('princess');
+const addprincess = (princessPosition) =>
+  cells[princessPosition].classList.add('princess');
+const removeprincess = (princessPosition) =>
+  cells[princessPosition].classList.remove('princess');
 
 addprincess(princessPosition);
 console.log(princessPosition);
 
+///////////music////
+
+/////////////
 window.addEventListener('keypress', WAD);
 
 ///////////////////// Shoots
@@ -74,18 +78,44 @@ function blueshoot(event) {
   switch (key) {
     case 'w':
       setInterval(() => {
-        removeblueshoot(blueshootPosition);
         blueshootPosition -= width;
-        addblueshoot(blueshootPosition);
+        cells[blueshootPosition].classList.remove('blueshoot');
+
+        cells[blueshootPosition].classList.add('blueshoot');
         console.log('shoot');
-        clearInterval();
+
+        if (blueshootPosition < width) {
+          console.log('llego');
+          cells[blueshootPosition].classList.remove('blueshoot');
+          clearInterval();
+          console.log('llego2');
+          if (cells[index].classList.contain('blueshoot', 'wafflecat')) {
+            resultDisplay.textContent = 'Goals';
+            cells[index].classList.remove('wafflecat');
+            /////////////SCORING///////
+            result++;
+            resultDisplay.textContent = result;
+            /////////////////////////////////
+            clearInterval();
+          }
+        }
+        //clearInterval(blueshoot );
+
+        //if (cells[index].classList.contain('blueshoot', 'wafflecat')) {
+        //resultDisplay.textContent = 'Goals';
+        //cells[index].classList.remove('wafflecat');
+        //clearInterval();
+        //}
+
+        if (blueshootPosition === wafflecatPosition)
+          (blueshootPosition = removeblueshoot()), removewafflecat();
+        cells[blueshoot].classList.remove('blueshoot');
+        cells[wafflecatPosition].classList.remove('wafflecat');
+        ////////////////////////   TOCA QUITAR DISPAROS Y GATICOS HASTA AQUI LLEGASTE  //////////////////
       }, 150);
       break;
   }
 }
-
-const addblueshoot = (index) => cells[index].classList.add('blueshoot');
-const removeblueshoot = (index) => cells[index].classList.remove('blueshoot');
 
 window.addEventListener('keypress', blueshoot);
 
@@ -124,19 +154,11 @@ let wafflecatPosition = [
   29,
 ];
 
-const addwafflecat = (index) => cells[index].classList.add('wafflecat');
+const addwafflecat = (wafflecatPosition) =>
+  cells[wafflecatPosition].classList.add('wafflecat');
 
-wafflecatPosition.forEach((index) => {
-  addwafflecat(index);
+wafflecatPosition.forEach((wafflecatPosition) => {
+  addwafflecat(wafflecatPosition);
 });
 
-addwafflecat(wafflecatPosition);
 console.log(wafflecatPosition);
-
-////Destroy wafflecats?
-
-function removewafflecatPosition(index) {
-  return [index].classList.remove('wafflecat');
-}
-
-/////
