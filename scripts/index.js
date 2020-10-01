@@ -7,12 +7,48 @@ console.log(cellCount);
 
 const grid = document.querySelector('.grid');
 
-const cells = [];
+const span = document.querySelector('.span');
 
 const resultDisplay = document.querySelector('#result');
 
+const cells = [];
+
+let princessPosition = 95;
+
+let wafflecatPosition = [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+];
+
 for (let index = 0; index < cellCount; index = index + 1) {
-  console.log(index);
   const cell = document.createElement('div');
   //cell.innerText = index;
 
@@ -20,9 +56,13 @@ for (let index = 0; index < cellCount; index = index + 1) {
   cells.push(cell);
 }
 
-/////event listener direction
+wafflecatPosition.forEach((wafflecatPosition) => {
+  cells[wafflecatPosition].classList.add('wafflecat');
+});
 
-let princessPosition = 95;
+console.log(wafflecatPosition);
+
+/////event listener direction
 
 const WAD = (event) => {
   const { key } = event;
@@ -61,43 +101,46 @@ const removeprincess = (princessPosition) =>
 addprincess(princessPosition);
 console.log(princessPosition);
 
-///////////music////
-
-/////////////
 window.addEventListener('keypress', WAD);
 
 ///////////////////// Shoots
 
-let blueshootiming = 300;
-
-function blueshoot(event) {
+function blueshootLaser(event) {
   let blueshootPosition = princessPosition;
+  let laserTime;
   const { key } = event;
   console.log(key);
 
   switch (key) {
     case 'w':
-      setInterval(() => {
-        blueshootPosition -= width;
+      console.log(blueshootPosition);
+      laserTime = setInterval(laserShoot, 150);
+      function laserShoot() {
         cells[blueshootPosition].classList.remove('blueshoot');
-
+        blueshootPosition -= width;
         cells[blueshootPosition].classList.add('blueshoot');
+
         console.log('shoot');
 
         if (blueshootPosition < width) {
           console.log('llego');
           cells[blueshootPosition].classList.remove('blueshoot');
-          clearInterval();
+          clearInterval(laserTime);
           console.log('llego2');
-          if (cells[index].classList.contain('blueshoot', 'wafflecat')) {
-            resultDisplay.textContent = 'Goals';
-            cells[index].classList.remove('wafflecat');
-            /////////////SCORING///////
-            result++;
-            resultDisplay.textContent = result;
-            /////////////////////////////////
-            clearInterval();
-          }
+        }
+
+        if (cells[blueshootPosition].classList.contains('wafflecat')) {
+          clearInterval(laserTime);
+          cells[blueshootPosition].classList.remove('blueshoot');
+          cells[blueshootPosition].classList.remove('wafflecat');
+          console.log('se destruye?');
+          result = result + 10;
+          score.textContent = score;
+          resultDisplay.textContent = 'Goals';
+
+          /////////////SCORING///////
+          resultDisplay.textContent = result;
+          /////////////////////////////////
         }
         //clearInterval(blueshoot );
 
@@ -107,58 +150,18 @@ function blueshoot(event) {
         //clearInterval();
         //}
 
-        if (blueshootPosition === wafflecatPosition)
-          (blueshootPosition = removeblueshoot()), removewafflecat();
-        cells[blueshoot].classList.remove('blueshoot');
-        cells[wafflecatPosition].classList.remove('wafflecat');
+        //if (blueshootPosition === wafflecatPosition) {
+        // cells[wafflecatPosition].classList.remove('blueshoot', 'wafflecat');
+        //}
+
         ////////////////////////   TOCA QUITAR DISPAROS Y GATICOS HASTA AQUI LLEGASTE  //////////////////
-      }, 150);
+      }
       break;
   }
 }
 
-window.addEventListener('keypress', blueshoot);
+window.addEventListener('keypress', blueshootLaser);
 
 /////wafflecats positions
 
-let wafflecatPosition = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-  26,
-  27,
-  28,
-  29,
-];
-
-const addwafflecat = (wafflecatPosition) =>
-  cells[wafflecatPosition].classList.add('wafflecat');
-
-wafflecatPosition.forEach((wafflecatPosition) => {
-  addwafflecat(wafflecatPosition);
-});
-
-console.log(wafflecatPosition);
+/////////////¿SERA QUE AQUI HACE FALTA UN SETINTERVAL? MIRA, NO SÉ, PERO DEBERÍAS IRTE A CENAR//////////
