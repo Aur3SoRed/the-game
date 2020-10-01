@@ -7,9 +7,9 @@ console.log(cellCount);
 
 const grid = document.querySelector('.grid');
 
-const span = document.querySelector('.span');
+let addScore = 0;
 
-const resultDisplay = document.querySelector('#result');
+const resultDisplay = document.querySelector('span');
 
 const cells = [];
 
@@ -47,6 +47,7 @@ let wafflecatPosition = [
   28,
   29,
 ];
+let deleteWafflecat = wafflecatPosition.slice(blueshootLaser);
 
 for (let index = 0; index < cellCount; index = index + 1) {
   const cell = document.createElement('div');
@@ -134,12 +135,10 @@ function blueshootLaser(event) {
           cells[blueshootPosition].classList.remove('blueshoot');
           cells[blueshootPosition].classList.remove('wafflecat');
           console.log('se destruye?');
-          result = result + 10;
-          score.textContent = score;
-          resultDisplay.textContent = 'Goals';
+          addScore += 10;
 
           /////////////SCORING///////
-          resultDisplay.textContent = result;
+          resultDisplay.textContent = addScore;
           /////////////////////////////////
         }
         //clearInterval(blueshoot );
