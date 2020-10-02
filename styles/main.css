@@ -34,7 +34,6 @@ header {
 }
 
 .grid div {
-  border: 1px solid lightgrey;
   flex-grow: 1;
   height: 10%;
   width: 10%;
@@ -82,6 +81,11 @@ button {
 picture {
   display: block;
 }
+
+gif {
+  background-image: url(../images/waffles.gif);
+}
+
 body {
   font-size: 100%;
   background-size: cover;

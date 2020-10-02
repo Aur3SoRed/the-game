@@ -10,9 +10,11 @@ The game is an free adaptation of classic arcade game 'Space Invaders' without a
 
 All parts of this projects are included at Creative Commons and Open Source code.
 
-The three supports of project are HTML, CSS and Javascrpit.
+The three supports of project are HTML, CSS and Vanilla Javascript (without libraries).
 
 ## How to install:
+
+Sorry, it's only avalible in Github.
 
 ## How to run:
 
@@ -21,6 +23,8 @@ Controls for this random game are:
 W-for shoot(or something like that)
 A-for move to left(into the limit of last cells)
 D-for move to right(into the limit of last cells)
+
+The enemies can't shoot because, well, it's my first project ¯\_(ツ)\_/¯.
 
 ## Documentation:
 
