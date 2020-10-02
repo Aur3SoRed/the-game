@@ -51,7 +51,6 @@ let deleteWafflecat = wafflecatPosition.slice(blueshootLaser);
 
 for (let index = 0; index < cellCount; index = index + 1) {
   const cell = document.createElement('div');
-  //cell.innerText = index;
 
   grid.appendChild(cell);
   cells.push(cell);
@@ -63,7 +62,7 @@ wafflecatPosition.forEach((wafflecatPosition) => {
 
 console.log(wafflecatPosition);
 
-/////event listener direction
+/////event listener direction////////
 
 const WAD = (event) => {
   const { key } = event;
@@ -135,32 +134,21 @@ function blueshootLaser(event) {
           cells[blueshootPosition].classList.remove('blueshoot');
           cells[blueshootPosition].classList.remove('wafflecat');
           console.log('se destruye?');
-          addScore += 10;
-
-          /////////////SCORING///////
+          addScore += 100000;
           resultDisplay.textContent = addScore;
-          /////////////////////////////////
         }
-        //clearInterval(blueshoot );
 
-        //if (cells[index].classList.contain('blueshoot', 'wafflecat')) {
-        //resultDisplay.textContent = 'Goals';
-        //cells[index].classList.remove('wafflecat');
-        //clearInterval();
-        //}
+        /////////////////SCORE/////////////
 
-        //if (blueshootPosition === wafflecatPosition) {
-        // cells[wafflecatPosition].classList.remove('blueshoot', 'wafflecat');
-        //}
+        if (addScore === 3000000) {
+          let img = document.getElementById('gameover');
+          img.src = '../images/bender.jpeg';
 
-        ////////////////////////   TOCA QUITAR DISPAROS Y GATICOS HASTA AQUI LLEGASTE  //////////////////
+          alert('Ok, I understood, you prefer crêpes');
+        }
       }
       break;
   }
 }
 
 window.addEventListener('keypress', blueshootLaser);
-
-/////wafflecats positions
-
-/////////////¿SERA QUE AQUI HACE FALTA UN SETINTERVAL? MIRA, NO SÉ, PERO DEBERÍAS IRTE A CENAR//////////
